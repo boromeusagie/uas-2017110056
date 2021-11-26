@@ -1,4 +1,201 @@
-input:checked ~ .dot {
-    transform: translateX(100%);
-    background-color: #48bb78;
+.loading-cube-folding {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    transform: rotate(45deg);
+    font-size: 0;
+    span {
+        position: relative;
+        width: 50px/2;
+        height: 50px/2;
+        transform: scale(1.1);
+        display: inline-block;
+        &::before {
+            content: "";
+            background-color: #ef4444;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: block;
+            width: 50px/2;
+            height: 50px/2;
+            -moz-transform-origin: 100% 100%;
+            -ms-transform-origin: 100% 100%;
+            -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+            animation: loading-folding 2.5s infinite linear both;
+        }
+    }
+    .leaf2 {
+        transform: rotateZ(90deg) scale(1.1);
+        &::before {
+            animation-delay: 0.3s;
+            background-color: darken(#ef4444, 5%);
+        }
+    }
+    .leaf3 {
+        transform: rotateZ(270deg) scale(1.1);
+        &::before {
+            animation-delay: 0.9s;
+            background-color: darken(#ef4444, 5%);
+        }
+    }
+    .leaf4 {
+        transform: rotateZ(180deg) scale(1.1);
+        &::before {
+            animation-delay: 0.6s;
+            background-color: darken(#ef4444, 10%);
+        }
+    }
+}
+
+//with loading text and shadow
+.loading-cube-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 50px * 2;
+    height: 50px * 2;
+    text-align: center;
+    //shadow
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -20px;
+        margin: auto;
+        width: 50px * 1.8;
+        height: 6px;
+        background-color: rgba(black, 0.1);
+        filter: blur(2px);
+        border-radius: 100%;
+        z-index: 1;
+        animation: loading-shadow 0.5s ease infinite alternate;
+    }
+    .loading {
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        display: block;
+        color: #ef4444;
+        position: relative;
+        top: 50px/2;
+        z-index: 2;
+        animation: loading-text 0.5s ease infinite alternate;
+    }
+}
+@keyframes loading-text {
+    100% {
+        top: (50px/2) + 10;
+    }
+}
+@keyframes loading-shadow {
+    100% {
+        bottom: -18px;
+        width: 50px * 2;
+    }
+}
+
+@keyframes line-scale-pulse-out-rapid {
+    0% {
+        transform: scaley(1);
+    }
+    80% {
+        transform: scaley(0.3);
+    }
+    90% {
+        transform: scaley(1);
+    }
+}
+
+.card-loaders {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+
+    .loader-animation {
+        margin-top: 30px;
+        height: 80px;
+    }
+
+    .loader-text {
+        display: block;
+        height: 40px;
+    }
+}
+
+.line-scale-pulse-out-rapid {
+    text-align: center;
+    height: 100%;
+
+    .loaders > & {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    > div {
+        width: 0.25rem;
+        height: 3rem;
+        margin: 0 0.25rem;
+        animation-fill-mode: both;
+        background-color: #EF4444;
+
+        display: inline-block;
+        vertical-align: middle;
+        animation: line-scale-pulse-out-rapid 0.9s -0.5s infinite cubic-bezier(0.11, 0.49, 0.38, 0.78);
+
+        &:nth-child(2),
+        &:nth-child(4) {
+            animation-delay: -0.25s !important;
+        }
+
+        &:nth-child(1),
+        &:nth-child(5) {
+            animation-delay: 0s !important;
+        }
+
+        // color
+        &:nth-child(1) {
+            background-color: #dae9f4;
+        }
+
+        &:nth-child(2) {
+            background-color: #8bcbc8;
+        }
+
+        &:nth-child(3) {
+            background-color: #ecc7c0;
+        }
+
+        &:nth-child(4) {
+            background-color: #fdae84;
+        }
+
+        &:nth-child(5) {
+            background-color: #3c2e3d;
+        }
+    }
+}
+
+@keyframes loading-folding {
+    0%,
+    10% {
+        transform: perspective(140px) rotateX(-180deg);
+        opacity: 0;
+    }
+    25%,
+    75% {
+        transform: perspective(140px) rotateX(0deg);
+        opacity: 1;
+    }
+    90%,
+    100% {
+        transform: perspective(140px) rotateY(180deg);
+        opacity: 0;
+    }
 }

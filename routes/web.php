@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -26,8 +28,13 @@ use Inertia\Inertia;
 
 Route::redirect('/', '/login', 301);
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::group(
+    [
+        'middleware' => ['auth', 'verified']
+    ], function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/product', [ProductController::class, 'index'])->name('product');
+    }
+);
 
 require __DIR__.'/auth.php';
