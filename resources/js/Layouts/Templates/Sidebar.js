@@ -3,6 +3,7 @@ import ApplicationLogo from '@/Components/Commons/ApplicationLogo';
 import NavLink from '@/Components/Navbar/NavLink';
 import ButtonLink from '@/Components/Navbar/ButtonLink';
 import ResponsiveNavLink from '@/Components/Navbar/ResponsiveNavLink';
+import IconLink from '@/Components/Navbar/IconLink';
 
 export default function Navbar({ auth }) {
 
@@ -56,7 +57,7 @@ export default function Navbar({ auth }) {
                             <i className="fas fa-file-invoice mr-2 text-sm opacity-75"></i>
                             Report
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('login')} active={route().current('login')}>
+                        <ResponsiveNavLink href={route('cashier')} active={route().current('cashier')}>
                             <i className="fas fa-cart-plus mr-2 text-sm opacity-75"></i>
                             Cashier
                         </ResponsiveNavLink>
@@ -105,23 +106,23 @@ export default function Navbar({ auth }) {
 
                     <ul className="md:flex-col md:min-w-full flex flex-col list-none">
                         <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                            <i className="fas fa-tv mr-2 text-sm opacity-75"></i>
+                            <IconLink icon="tv" />
                             Dashboard
                         </NavLink>
                         <NavLink href={route('product')} active={route().current('product')}>
-                            <i className="fas fa-boxes mr-2 text-sm opacity-75"></i>
+                            <IconLink icon="boxes" />
                             Product
                         </NavLink>
                         <NavLink href={route('login')} active={route().current('login')}>
-                            <i className="fas fa-chart-bar mr-2 text-sm opacity-75"></i>
+                            <IconLink icon="chart-bar" />
                             Sales
                         </NavLink>
                         <NavLink href={route('login')} active={route().current('login')}>
-                            <i className="fas fa-file-invoice mr-2 text-sm opacity-75"></i>
+                            <IconLink icon="file-invoice" />
                             Report
                         </NavLink>
-                        <ButtonLink href={route('login')}>
-                            <i className="fas fa-cart-plus mr-2 text-sm opacity-75"></i>
+                        <ButtonLink href={route('cashier')}>
+                            <IconLink icon="cart-plus" />
                             Cashier
                         </ButtonLink>
                     </ul>

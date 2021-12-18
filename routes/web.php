@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CashierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Foundation\Application;
@@ -34,6 +35,7 @@ Route::group(
     ], function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('/product', [ProductController::class, 'index'])->name('product');
+        Route::get('/cashier', [CashierController::class, 'index'])->name('cashier');
     }
 );
 

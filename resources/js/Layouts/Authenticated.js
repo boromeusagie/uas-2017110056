@@ -14,7 +14,7 @@ export default function Authenticated({ auth, header, children }) {
 
                 <Main header={header} children={children} />
 
-                <Footer />
+                <Footer auth={auth} />
             </div>
         </div>
     );

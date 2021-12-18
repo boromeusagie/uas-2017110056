@@ -1,7 +1,7 @@
 import React from 'react';
-import Switch from '@/Components/Form/SwitchToggle';
+// import Switch from '@/Components/Form/SwitchToggle';
 
-export default function Footer() {
+export default function Footer({ auth }) {
     return (
         <footer className="absolute bottom-0 w-full block py-4">
             <div className="container mx-auto px-4">
@@ -16,7 +16,7 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <Switch />
+                    {/* <Switch auth={auth} /> */}
                 </div>
             </div>
         </footer>

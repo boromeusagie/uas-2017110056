@@ -8,8 +8,8 @@ export default function NavLink({ href, active, icon, children }) {
                 href={href}
                 className={
                     active
-                        ? 'text-xs uppercase py-3 font-bold block text-red-500 hover:text-red-900'
-                        : 'text-xs uppercase py-3 font-bold block text-gray-900 hover:text-gray-500'
+                        ? 'text-xs uppercase py-3 font-bold block text-red-500 hover:text-red-900 transition ease-in-out duration-150'
+                        : 'text-xs uppercase py-3 font-bold block text-gray-900 hover:text-gray-500 transition ease-in-out duration-150'
                 }
             >
                 {icon}
